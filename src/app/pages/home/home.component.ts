@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
   // TypeScript public modifiers
   constructor(
     public appState: AppState,
-  ) {}
+  ) {
+  }
 
   public ngOnInit() {
     console.log('hello `Home` component');
