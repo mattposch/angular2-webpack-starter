@@ -15,6 +15,11 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+import { ButtonsModule } from 'ng2-bootstrap/buttons';
+import { ModalModule } from 'ng2-bootstrap/modal';
+import { DatepickerModule } from 'ng2-bootstrap/datepicker';
+import { SortableModule } from 'ng2-bootstrap/sortable';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -58,7 +63,11 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    ButtonsModule.forRoot(),
+    ModalModule.forRoot(),
+    DatepickerModule.forRoot(),
+    SortableModule.forRoot(),
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
