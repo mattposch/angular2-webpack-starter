@@ -1,11 +1,12 @@
 import * as moment from 'moment';
 
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'showroom',
   styleUrls: [ 'showroom.component.scss' ],
   templateUrl: './showroom.component.html',
+  encapsulation: ViewEncapsulation.None,
 })
 export class ShowroomComponent {
   public singleModel: string = '1';
