@@ -16,7 +16,9 @@ import { AppState } from './app.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    'app.component.scss'
+    'app.component.scss',
+    '../../node_modules/primeng/resources/primeng.css',
+    '../../node_modules/primeng/resources/themes/omega/theme.css',
   ],
   templateUrl: './app.component.html'
 })

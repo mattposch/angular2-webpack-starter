@@ -20,6 +20,8 @@ import { ModalModule } from 'ng2-bootstrap/modal';
 import { DatepickerModule } from 'ng2-bootstrap/datepicker';
 import { SortableModule } from 'ng2-bootstrap/sortable';
 
+import { AccordionModule } from 'primeng/components/accordion/accordion';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -68,6 +70,7 @@ type StoreType = {
     ModalModule.forRoot(),
     DatepickerModule.forRoot(),
     SortableModule.forRoot(),
+    AccordionModule,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

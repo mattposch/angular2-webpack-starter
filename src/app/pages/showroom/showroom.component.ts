@@ -9,14 +9,14 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class ShowroomComponent {
-  public singleModel: string = '1';
 
+  public singleModel: string = '1';
   public dt: Date = new Date();
   public minDate: Date = void 0;
   public events: any[];
   public tomorrow: Date;
   public afterTomorrow: Date;
-  public dateDisabled: {date: Date, mode: string}[];
+  public dateDisabled: Array<{ date: Date, mode: string }>;
   public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY',
     'shortDate'];
   public format: string = this.formats[0];
@@ -24,6 +24,18 @@ export class ShowroomComponent {
     formatYear: 'YY',
     startingDay: 1
   };
+  public itemStringsLeft: any[] = [
+    'Windstorm',
+    'Bombasto',
+    'Magneta',
+    'Tornado'
+  ];
+
+  public itemStringsRight: any[] = [
+    'Mr. O',
+    'Tomato'
+  ];
+
   private opened: boolean = false;
 
   public constructor() {
@@ -87,16 +99,4 @@ export class ShowroomComponent {
   public toggleMin(): void {
     this.dt = new Date(this.minDate.valueOf());
   }
-
-  public itemStringsLeft: any[] = [
-    'Windstorm',
-    'Bombasto',
-    'Magneta',
-    'Tornado'
-  ];
-
-  public itemStringsRight: any[] = [
-    'Mr. O',
-    'Tomato'
-  ];
 }
