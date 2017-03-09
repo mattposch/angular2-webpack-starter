@@ -36,7 +36,10 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './pages/home';
 import { NoContentComponent } from './pages/no-content';
 import { ShowroomComponent } from './pages/showroom';
-const components = [HomeComponent, NoContentComponent, ShowroomComponent];
+import { BaseLayoutComponent } from './components/base-layout';
+const components = [
+  HomeComponent, NoContentComponent, ShowroomComponent, BaseLayoutComponent
+];
 
 import '../styles/styles.scss';
 
