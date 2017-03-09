@@ -34,12 +34,15 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 
 import { HomeComponent } from './pages/home';
+import { LoginComponent } from './pages/login';
 import { NoContentComponent } from './pages/no-content';
 import { ShowroomComponent } from './pages/showroom';
 import { BaseLayoutComponent } from './components/base-layout';
 const components = [
-  HomeComponent, NoContentComponent, ShowroomComponent, BaseLayoutComponent
+  HomeComponent, LoginComponent, NoContentComponent, ShowroomComponent, BaseLayoutComponent
 ];
+
+import { UserModule } from './modules/user';
 
 import '../styles/styles.scss';
 
@@ -74,6 +77,7 @@ type StoreType = {
     DatepickerModule.forRoot(),
     SortableModule.forRoot(),
     AccordionModule,
+    UserModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
