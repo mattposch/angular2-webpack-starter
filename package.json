@@ -7,7 +7,7 @@
     "webpack",
     "typescript"
   ],
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
+  "author": "Matthias Posch <posch.matthias@gmail.com>",
   "homepage": "https://github.com/angularclass/angular2-webpack-starter",
   "license": "MIT",
   "scripts": {
@@ -162,10 +162,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/angular2-webpack-starter.git"
+    "url": "https://github.com/mattposch/carudo-ng2.git"
   },
   "bugs": {
-    "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
+    "url": "https://github.com/mattposch/carudo-ng2/issues"
   },
   "engines": {
     "node": ">= 4.2.1",
