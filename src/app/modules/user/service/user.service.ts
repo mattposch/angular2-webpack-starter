@@ -1,37 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
 import { LocalStorageService } from 'ng2-webstorage';
+import { ConfigService } from '@nglibs/config';
+import { RequestService } from '../../../core';
 
 @Injectable()
 export class UserService {
 
-  private _headers = new Headers({'Content-Type': 'application/json'});
+  private _urls;
 
   constructor (
-    private _http: Http,
-    private _storage: LocalStorageService
-  ) {}
+    private _requestService: RequestService,
+    private _storage: LocalStorageService,
+    private readonly _config: ConfigService
+  ) {
+    this._urls = _config.getSettings().urls;
+  }
 
   public login(loginData) {
-    console.log('UserService.login', loginData.email, loginData.password);
-
-    this._http.post(
-      'http://localhost:4000/api/users/login',
-      JSON.stringify(loginData),
-      {headers: this._headers}
+    this._requestService.post(
+      this._urls.login,
+      loginData
     )
     .subscribe((response) => {
-      console.log('got response', response.json());
       this._storage.store('jwt', response.json().token);
 
-      this._headers.append('Authorization', 'JWT ' + this._storage.retrieve('jwt'));
-      this._http.get(
-        'http://localhost:4000/api/users/me',
-        {headers: this._headers}
-      )
-      .subscribe((user) => {
-        console.log('user', user.json());
-      });
+      // this._requestService.get(this._urls.me)
+      //   .subscribe((user) => {
+      //     console.log('user', user.json());
+      //   });
     });
   }
 
