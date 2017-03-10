@@ -1,25 +1,46 @@
-<nav>
-  <a [routerLink]=" ['./'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Index
-  </a>
-  <a [routerLink]=" ['./home'] "
-     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-    Home
-  </a>
-</nav>
+<div class="container">
+  <nav>
+    <a [routerLink]=" ['./'] "
+       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      Index
+    </a>
+    <a [routerLink]=" ['./home'] "
+       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      Home
+    </a>
+    <a [routerLink]=" ['./login'] "
+       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      Login
+    </a>
+    <a [routerLink]=" ['./login'] "
+       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      Todos
+    </a>
+  </nav>
+
+  <div *ngIf="userName" class="is-right">
+    {{userName}}
+    <button class="btn btn-secondary" (click)="logout()">Logout</button>
+  </div>
+</div>
 
 <main>
+  <div class="container">
     <ng-content></ng-content>
+  </div>
 </main>
 
-<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+<div class="container">
+  <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
+</div>
 
 <footer>
-  <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-  <div>
-    <a [href]="url">
-      <img [src]="angularclassLogo" width="25%">
-    </a>
+  <div class="container">
+    <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+    <div>
+      <a [href]="url">
+        <img [src]="angularclassLogo" width="25%">
+      </a>
+    </div>
   </div>
 </footer>

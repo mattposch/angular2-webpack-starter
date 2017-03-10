@@ -21,12 +21,16 @@ export class RequestService {
 
   public get(url, headers = {}) {
     const fullHeaders = this._prepareHeaders(headers);
-    return this._http.get(this._rootUrl + url, fullHeaders);
+    return this._http.get(this._rootUrl + url, fullHeaders)
+      .map((response) => response.json())
+      .toPromise();
   }
 
   public post(url, data, headers = {}) {
     const fullHeaders = this._prepareHeaders(headers);
-    return this._http.post(this._rootUrl + url, JSON.stringify(data), fullHeaders);
+    return this._http.post(this._rootUrl + url, JSON.stringify(data), fullHeaders)
+      .map((response) => response.json())
+      .toPromise();
   }
 
   private _prepareHeaders(headers) {
