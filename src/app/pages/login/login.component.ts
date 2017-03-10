@@ -13,7 +13,6 @@ export class LoginComponent {
   ) {}
 
   public onSubmit(formValues) {
-    console.log('submit', formValues);
     this._userService.login(formValues);
   }
 

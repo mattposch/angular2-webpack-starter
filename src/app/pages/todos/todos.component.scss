@@ -1,0 +1,17 @@
+/**
+  todos styling
+ */
+
+.todos {
+  padding: 20px 0;
+}
+
+.todo {
+  padding: 10px;
+  transition: all .3s;
+  display: block;
+
+  &:hover {
+    background-color: #c0c0c0;
+  }
+}

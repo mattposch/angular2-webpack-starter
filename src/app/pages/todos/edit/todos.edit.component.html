@@ -1,0 +1,14 @@
+<base-layout>
+  <h1>Todo Edit</h1>
+
+  <form (ngSubmit)="save()" *ngIf="todo">
+    <button type="submit" class="btn btn-success is-right">Save</button>
+    <button class="btn btn-secondary is-right" (click)="cancel()">Cancel</button>
+
+    <div class="form-group">
+      <label for="text">Text</label>
+      <input type="text" class="form-control" id="text" required name="text" [(ngModel)]="todo.text">
+    </div>
+  </form>
+
+</base-layout>

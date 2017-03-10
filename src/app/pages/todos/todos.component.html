@@ -1,0 +1,11 @@
+<base-layout>
+  <h1>Todos</h1>
+
+  <button class="btn btn-primary is-right" [routerLink]="['new']">New</button>
+
+  <div class="todos">
+    <a [routerLink]=" [todo._id] " class="todo" *ngFor="let todo of todos">
+      {{todo.text}}
+    </a>
+  </div>
+</base-layout>

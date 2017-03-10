@@ -1,18 +1,14 @@
 <div class="container">
   <nav>
-    <a [routerLink]=" ['./'] "
-       routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-      Index
-    </a>
-    <a [routerLink]=" ['./home'] "
+    <a [routerLink]=" ['/'] "
        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
       Home
     </a>
-    <a [routerLink]=" ['./login'] "
+    <a *ngIf="!userName" [routerLink]=" ['/login'] "
        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
       Login
     </a>
-    <a [routerLink]=" ['./login'] "
+    <a [routerLink]=" ['/todos'] "
        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
       Todos
     </a>
@@ -33,14 +29,3 @@
 <div class="container">
   <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 </div>
-
-<footer>
-  <div class="container">
-    <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-    <div>
-      <a [href]="url">
-        <img [src]="angularclassLogo" width="25%">
-      </a>
-    </div>
-  </div>
-</footer>

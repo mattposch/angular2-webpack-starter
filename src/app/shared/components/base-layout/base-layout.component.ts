@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LocalStorageService } from 'ng2-webstorage';
 
-import { AppState } from '../../app.service';
-import { UserService } from '../../modules/user';
+import { AppState } from '../../../app.service';
+import { UserService } from '../../../modules/user';
 
 @Component({
   selector: 'base-layout',

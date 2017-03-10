@@ -1,0 +1,12 @@
+<base-layout *ngIf="todo">
+  <h1>Todo Detail</h1>
+
+  <button class="btn btn-primary is-right" [routerLink]="['edit']">Edit</button>
+  <button class="btn btn-secondary is-right" (click)="deleteTodo(todo._id)">Delete</button>
+
+  <div>Id: {{todo._id}}</div>
+  <div>Text: {{todo.text}}</div>
+  <div>CreatedOn: {{todo.createdOn}}</div>
+  <div>ModifiedOn: {{todo.modifiedOn}}</div>
+
+</base-layout>

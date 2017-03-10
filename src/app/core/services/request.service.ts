@@ -33,6 +33,20 @@ export class RequestService {
       .toPromise();
   }
 
+  public patch(url, data, headers = {}) {
+    const fullHeaders = this._prepareHeaders(headers);
+    return this._http.patch(this._rootUrl + url, JSON.stringify(data), fullHeaders)
+      .map((response) => response.json())
+      .toPromise();
+  }
+
+  public delete(url, headers = {}) {
+    const fullHeaders = this._prepareHeaders(headers);
+    return this._http.delete(this._rootUrl + url, fullHeaders)
+      .map((response) => response.json())
+      .toPromise();
+  }
+
   private _prepareHeaders(headers) {
     const jwt = this._storage.retrieve('jwt');
     if (jwt) {

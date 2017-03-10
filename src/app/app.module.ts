@@ -1,10 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {
-  NgModule,
-  ApplicationRef
-} from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
 import {
   removeNgStyles,
   createNewHosts,
@@ -39,13 +36,17 @@ import { HomeComponent } from './pages/home';
 import { LoginComponent } from './pages/login';
 import { NoContentComponent } from './pages/no-content';
 import { ShowroomComponent } from './pages/showroom';
-import { BaseLayoutComponent } from './components/base-layout';
 const components = [
-  HomeComponent, LoginComponent, NoContentComponent, ShowroomComponent, BaseLayoutComponent
+  HomeComponent, LoginComponent, NoContentComponent, ShowroomComponent
 ];
 
 import { CoreModule } from './core';
+import { SharedModule } from './shared';
 import { UserModule } from './modules/user';
+import { TodosModule } from './modules/todos';
+const modules = [
+  CoreModule, SharedModule, UserModule, TodosModule
+];
 
 import '../styles/styles.scss';
 
@@ -86,8 +87,7 @@ type StoreType = {
     DatepickerModule.forRoot(),
     SortableModule.forRoot(),
     AccordionModule,
-    UserModule,
-    CoreModule,
+    ...modules
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
