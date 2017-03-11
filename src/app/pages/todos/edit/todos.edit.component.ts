@@ -37,8 +37,8 @@ export class TodosEditComponent {
 
   public save() {
     this._todosService.saveTodo(this.todo)
-      .then(() => {
-        this._router.navigateByUrl('/todos');
+      .then((result) => {
+        this._router.navigateByUrl('/todos/' + result._id);
       });
   }
 
