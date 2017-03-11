@@ -11,7 +11,7 @@ import {
   RouterModule,
   PreloadAllModules
 } from '@angular/router';
-import { ConfigModule, ConfigLoader, ConfigStaticLoader } from '@nglibs/config';
+import { ConfigModule } from '@nglibs/config';
 
 import { ButtonsModule } from 'ng2-bootstrap/buttons';
 import { ModalModule } from 'ng2-bootstrap/modal';
@@ -30,7 +30,6 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { config } from './configLoader';
 
 import { HomeComponent } from './pages/home';
 import { LoginComponent } from './pages/login';
@@ -72,12 +71,6 @@ type StoreType = {
     ...components
   ],
   imports: [
-    ConfigModule.forRoot({
-      provide: ConfigLoader,
-      useFactory: () => {
-        return new ConfigStaticLoader(config);
-      }
-    }),
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -87,6 +80,7 @@ type StoreType = {
     DatepickerModule.forRoot(),
     SortableModule.forRoot(),
     AccordionModule,
+    ConfigModule.forRoot(),
     ...modules
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

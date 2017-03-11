@@ -10,6 +10,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class ShowroomComponent {
 
+  public lgModal;
+  public smModal;
   public singleModel: string = '1';
   public dt: Date = new Date();
   public minDate: Date = void 0;

@@ -60,6 +60,18 @@ declare module 'modern-lru' {
 declare var ENV: string;
 declare var HMR: boolean;
 declare var System: SystemJS;
+declare var CONFIG: {
+  backendUrl: string;
+  jwtPrefix: string;
+  urls: {
+    login: string;
+    me: string;
+    todos: string;
+  };
+  features: {
+    mail: string;
+  };
+};
 
 interface SystemJS {
   import: (path?: string) => Promise<any>;

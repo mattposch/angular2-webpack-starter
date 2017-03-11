@@ -2,21 +2,19 @@ import * as _ from 'lodash';
 
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { ConfigService } from '@nglibs/config';
 import { LocalStorageService } from 'ng2-webstorage';
 
 @Injectable()
 export class RequestService {
 
   private _headers = {'Content-Type': 'application/json'};
-  private _rootUrl = 'http://localhost:4000';
+  private _rootUrl = CONFIG.backendUrl;
+  private _jwtPrefix = CONFIG.jwtPrefix;
 
   constructor (
     private _http: Http,
-    private readonly _config: ConfigService,
     private _storage: LocalStorageService
   ) {
-    this._rootUrl = this._config.getSettings().rootUrl;
   }
 
   public get(url, headers = {}) {
@@ -50,7 +48,7 @@ export class RequestService {
   private _prepareHeaders(headers) {
     const jwt = this._storage.retrieve('jwt');
     if (jwt) {
-      headers['Authorization'] = this._config.getSettings().jwtPrefix + ' '
+      headers['Authorization'] = this._jwtPrefix + ' '
         + this._storage.retrieve('jwt');
     }
 

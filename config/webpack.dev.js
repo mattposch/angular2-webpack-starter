@@ -5,6 +5,7 @@
 const helpers = require('./helpers');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
+const customConfig = require('./custom.config.js');
 
 /**
  * Webpack Plugins
@@ -16,15 +17,18 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 /**
  * Webpack Constants
  */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+const ENV = process.env.ENV = process.env.NODE_ENV || 'development';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3000;
+const CONFIG = customConfig();
+
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   host: HOST,
   port: PORT,
   ENV: ENV,
-  HMR: HMR
+  HMR: HMR,
+  CONFIG: CONFIG
 });
 
 /**
@@ -141,11 +145,12 @@ module.exports = function (options) {
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
+        'CONFIG': METADATA.CONFIG,
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
-          'HMR': METADATA.HMR,
-        }
+          'HMR': METADATA.HMR
+        },
       }),
 
       /**

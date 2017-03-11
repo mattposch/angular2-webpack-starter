@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
-import { ConfigService } from '@nglibs/config';
 
 import { RequestService } from '../../../core';
 
 @Injectable()
 export class TodosService {
 
-  private _urls;
+  private _urls = CONFIG.urls;
 
   constructor (
     private _requestService: RequestService,
-    private _config: ConfigService,
-  ) {
-    this._urls = _config.getSettings().urls;
-  }
+  ) {}
 
   public fetchTodos() {
     return this._requestService.get(this._urls.todos);

@@ -15,7 +15,7 @@ const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
 /**
  * Webpack Constants
  */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
+const ENV = process.env.ENV = process.env.NODE_ENV || 'test';
 
 /**
  * Webpack configuration
@@ -259,4 +259,4 @@ module.exports = function (options) {
     }
 
   };
-}
+};

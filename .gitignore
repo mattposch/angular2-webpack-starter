@@ -71,4 +71,4 @@ dll/
 *.ngsummary.json
 *.shim.ngstyle.ts
 
-src/app/config/*
+.env
