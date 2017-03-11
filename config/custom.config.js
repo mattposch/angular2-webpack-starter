@@ -5,7 +5,7 @@ module.exports = function () {
     backendUrl: process.env.BACKEND_URL || 'http://localhost:4000',
     jwtPrefix: 'JWT',
     urls: {
-      login: '/api/user/login',
+      login: '/api/users/login',
       me: '/api/users/me',
       todos: '/api/todos'
     },
